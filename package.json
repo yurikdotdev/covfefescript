@@ -1,0 +1,42 @@
+{
+	"name": "@yurikdotdev/covfefescript",
+	"version": "0.0.1",
+	"author": {
+		"name": "Yurik",
+		"email": "inbox@yurik.dev",
+		"url": "https://yurik.dev"
+	},
+	"description": "A Trumpian-syntax Turing-complete interpreted language.",
+	"bin": {
+		"covfefescript": "./bin/covfefescript"
+	},
+	"directories": {
+		"doc": "docs",
+		"example": "examples"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yurikdotdev/covfefescript.git"
+	},
+	"scripts": {
+		"prepare": "go build -o bin/covfefescript cmd/covfefescript/main.go"
+	},
+	"keywords": [
+		"interpreter",
+		"toy-language",
+		"repl",
+		"cli",
+		"pratt-parser",
+		"tree-walk",
+		"hackathon",
+		"golang",
+		"scripting",
+		"experimental",
+		"meme"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/yurikdotdev/covfefescript/issues"
+	},
+	"homepage": "https://github.com/yurikdotdev/covfefescript#readme"
+}

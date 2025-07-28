@@ -77,7 +77,7 @@ go build -o covfefescript cmd/covfefescript/main.go
 Or you can use NPM. SAD! It's a disaster.
 
 ```
-npm install -g covfefescript
+npm install -g @yurikdotdev/covfefescript
 ```
 
 ## REPL: It's TREMENDOUSLY Interactive!

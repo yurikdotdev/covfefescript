@@ -31,4 +31,6 @@ go.work.sum
 # .idea/
 # .vscode/
 
+covfefescript
+bin
 TODO.md
