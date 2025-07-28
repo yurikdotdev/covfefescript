@@ -82,6 +82,7 @@ func (ie *IfExpression) String() string       { return "if" }
 
 type FunctionLiteral struct {
 	Token      token.Token
+	Name       *Identifier
 	Parameters []*Identifier
 	Body       *BlockStatement
 }
