@@ -18,7 +18,7 @@ func (p *Parser) parseStatement() ast.Statement {
 	case token.CONTINUE:
 		return p.parseContinueStatement()
 	case token.FUNCTION:
-		return p.parseExpressionStatement()
+		return p.parseFunctionStatement()
 	default:
 		return p.parseExpressionStatement()
 	}
@@ -129,16 +129,15 @@ func (p *Parser) parseContinueStatement() *ast.ContinueStatement {
 	return stmt
 }
 
-// Let's treat func as anon for now 
-func (p *Parser) parseFunctionStatement() *ast.ExpressionStatement {
-	stmt := &ast.ExpressionStatement{Token: p.curToken}
-
-	function := &ast.FunctionLiteral{Token: p.curToken}
+func (p *Parser) parseFunctionStatement() *ast.LookStatement {
+	stmt := &ast.LookStatement{Token: p.curToken}
 
 	if !p.expectPeek(token.IDENT) {
 		return nil
 	}
-	function.Name = &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
+	stmt.Name = &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
+
+	function := &ast.FunctionLiteral{Token: p.curToken, Name: stmt.Name}
 
 	if !p.expectPeek(token.LPAREN) {
 		return nil
@@ -149,6 +148,6 @@ func (p *Parser) parseFunctionStatement() *ast.ExpressionStatement {
 	}
 	function.Body = p.parseBlockStatement()
 
-	stmt.Expression = function
+	stmt.Value = function
 	return stmt
 }

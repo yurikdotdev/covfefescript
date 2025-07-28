@@ -13,11 +13,12 @@ func evalProgram(program *ast.Program, env *object.Environment) object.Object {
 		}
 		result = Eval(statement, env)
 
-		switch result := result.(type) {
-		case *object.GiveMeValue:
-			return result.Value
-		case *object.Error:
-			return result
+		if result != nil {
+			if rt := result.Type(); rt == object.ERROR_OBJ {
+				return result
+			} else if rt == object.GIVE_ME_VALUE {
+				return result.(*object.GiveMeValue).Value
+			}
 		}
 	}
 
@@ -35,9 +36,11 @@ func evalBlockStatement(block *ast.BlockStatement, env *object.Environment) obje
 		result = Eval(statement, env)
 
 		if result != nil {
-			rt := result.Type()
-
-			if rt == object.GIVE_ME_VALUE || rt == object.ERROR_OBJ || rt == "BREAK_VALUE" || rt == "CONTINUE_VALUE" {
+			if rt := result.Type(); rt == object.ERROR_OBJ {
+				return result
+			} else if rt == object.GIVE_ME_VALUE {
+				return result.(*object.GiveMeValue).Value
+			} else if rt == "BREAK_VALUE" || rt == "CONTINUE_VALUE" {
 				return result
 			}
 		}

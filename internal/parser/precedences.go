@@ -30,6 +30,7 @@ var precedences = map[token.TokenType]int{
 	token.LBRACKET: INDEX,
 	token.PLUS_EQ:  EQUALS,
 	token.MINUS_EQ: EQUALS,
+	token.AND:      EQUALS,
 }
 
 func (p *Parser) peekPrecedence() int {

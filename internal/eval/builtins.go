@@ -28,7 +28,7 @@ var builtins = map[string]*object.Builtin{
 			for _, arg := range args {
 				fmt.Println(arg.Inspect())
 			}
-			return object.COVFEFE 
+			return object.COVFEFE
 		},
 	},
 	"SADLY": {

@@ -47,8 +47,21 @@ func evalInfixExpression(node *ast.InfixExpression, env *object.Environment) obj
 	switch {
 	case left.Type() == object.MONEY_OBJ && right.Type() == object.MONEY_OBJ:
 		return evalMoneyInfixExpression(node.Operator, left, right)
+	case node.Operator == "<=" || node.Operator == ">=":
+		return object.NewError("unknown operator: %s %s %s", left.Type(), node.Operator, right.Type())
 	case left.Type() == object.TWEET_OBJ && right.Type() == object.TWEET_OBJ:
-		return evalTweetInfixExpression(node.Operator, left, right)
+		switch node.Operator {
+		case "==":
+			leftVal := left.(*object.Tweet).Value
+			rightVal := right.(*object.Tweet).Value
+			return nativeBoolToBooleanObject(leftVal == rightVal)
+		case "!=":
+			leftVal := left.(*object.Tweet).Value
+			rightVal := right.(*object.Tweet).Value
+			return nativeBoolToBooleanObject(leftVal != rightVal)
+		default:
+			return evalTweetInfixExpression(node.Operator, left, right)
+		}
 	case left.Type() == object.TRUTH_OBJ && right.Type() == object.TRUTH_OBJ:
 		switch node.Operator {
 		case "==":
@@ -79,11 +92,23 @@ func evalIfExpression(ie *ast.IfExpression, env *object.Environment) object.Obje
 
 	if isTruthy(condition) {
 		return Eval(ie.Consequence, env)
-	} else if ie.Alternative != nil {
-		return Eval(ie.Alternative, env)
-	} else {
-		return object.COVFEFE
 	}
+
+	for _, alt := range ie.Alternatives {
+		condition := Eval(alt.Condition, env)
+		if isError(condition) {
+			return condition
+		}
+		if isTruthy(condition) {
+			return Eval(alt.Consequence, env)
+		}
+	}
+
+	if ie.Alternative != nil {
+		return Eval(ie.Alternative, env)
+	}
+
+	return object.COVFEFE
 }
 
 func evalIdentifier(node *ast.Identifier, env *object.Environment) object.Object {
@@ -145,6 +170,10 @@ func evalMoneyInfixExpression(operator string, left, right object.Object) object
 		return nativeBoolToBooleanObject(leftVal < rightVal)
 	case ">":
 		return nativeBoolToBooleanObject(leftVal > rightVal)
+	case "<=":
+		return nativeBoolToBooleanObject(leftVal <= rightVal)
+	case ">=":
+		return nativeBoolToBooleanObject(leftVal >= rightVal)
 	case "%":
 		return &object.Money{Value: leftVal % rightVal}
 	case "==":

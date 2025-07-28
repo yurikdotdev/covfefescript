@@ -20,6 +20,7 @@ func (p *Parser) registerPrefixFns() {
 	p.registerPrefix(token.TWEET, p.parseStringLiteral)
 	p.registerPrefix(token.LBRACKET, p.parseArrayLiteral)
 	p.registerPrefix(token.LBRACE, p.parseHashLiteral)
+	p.registerPrefix(token.BING, p.parseBingCall)
 }
 
 func (p *Parser) registerInfixFns() {
@@ -38,7 +39,27 @@ func (p *Parser) registerInfixFns() {
 	p.registerInfix(token.MINUS_EQ, p.parseInfixExpression)
 	p.registerInfix(token.LPAREN, p.parseCallExpression)
 	p.registerInfix(token.LBRACKET, p.parseIndexExpression)
+	p.registerInfix(token.AND, p.parseInfixExpression)
 }
+
+func (p *Parser) parseBingCall() ast.Expression {
+	call := &ast.CallExpression{Token: p.curToken}
+	call.Function = &ast.Identifier{Token: p.curToken, Value: "BING"}
+	
+	if p.peekTokenIs(token.LPAREN) {
+		p.nextToken()
+		call.Arguments = p.parseExpressionList(token.RPAREN)
+	} else {
+		p.nextToken()
+		call.Arguments = []ast.Expression{p.parseExpression(LOWEST)}
+	}
+	
+	if !p.expectPeek(token.BANG) {
+		return nil
+	}
+	return call
+}
+
 
 func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
 	p.prefixParseFns[tokenType] = fn
