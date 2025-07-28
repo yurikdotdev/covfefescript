@@ -159,6 +159,12 @@ func (p *Parser) parseIfExpression() ast.Expression {
 
 func (p *Parser) parseFunctionLiteral() ast.Expression {
 	lit := &ast.FunctionLiteral{Token: p.curToken}
+	
+	if p.peekTokenIs(token.IDENT) {
+		p.nextToken()
+		lit.Name = &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
+	}
+	
 	if !p.expectPeek(token.LPAREN) {
 		return nil
 	}

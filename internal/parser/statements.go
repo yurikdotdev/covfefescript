@@ -18,7 +18,7 @@ func (p *Parser) parseStatement() ast.Statement {
 	case token.CONTINUE:
 		return p.parseContinueStatement()
 	case token.FUNCTION:
-		return p.parseFunctionStatement()
+		return p.parseExpressionStatement()
 	default:
 		return p.parseExpressionStatement()
 	}
@@ -129,6 +129,7 @@ func (p *Parser) parseContinueStatement() *ast.ContinueStatement {
 	return stmt
 }
 
+// Let's treat func as anon for now 
 func (p *Parser) parseFunctionStatement() *ast.ExpressionStatement {
 	stmt := &ast.ExpressionStatement{Token: p.curToken}
 
