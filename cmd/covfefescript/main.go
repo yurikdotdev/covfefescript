@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/yurikdotdev/covfefescript/internal/repl"
+)
 
 func main() {
-	fmt.Println("Covfefe!")
+	repl.InitREPL()
 }
