@@ -1,0 +1,6 @@
+MAKE_IT_BIG buildTheWall(height, material) {
+  GIVE_ME "My ideal wall is a " + height + " feet wall made of " + material + ". Beautiful."!
+}
+
+LOOK my_wall IS buildTheWall("five", "solid gold")!
+BING(my_wall)!

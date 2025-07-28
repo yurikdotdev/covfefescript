@@ -1,0 +1,20 @@
+LOOK a IS 5!
+LOOK b IS 3!
+
+LOOK sum IS a + b!
+BING("5 + 3 =", sum)!
+
+LOOK diff IS a - b!
+BING("5 - 3 =", diff)!
+
+LOOK prod IS a * b!
+BING("5 * 3 =", prod)!
+
+LOOK quotient IS a / b!
+BING("5 / 3 =", quotient)!
+
+LOOK rem IS a % b!
+BING("5 % 3 =", rem)!
+
+LOOK big_number_calc IS a + b * 2 - 1!
+BING("Complex calc:", big_number_calc)!

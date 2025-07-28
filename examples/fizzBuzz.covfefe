@@ -1,18 +1,18 @@
 MAKE_IT_BIG fizzBuzz(n) {
   LOOK x IS 0!
   
-  KEEP_WINNING (x < n) {
-    BELIEVE_ME x % 3 == 0 AND x % 5 == 0 {
+  KEEP_WINNING (x <= n) {
+    BELIEVE_ME (x % 3 == 0) AND (x % 5 == 0) {
       BING("fizzBuzz")!
-    } BUT_MAYBE x % 3 == 0 {
+    } BUT_MAYBE (x % 3 == 0) {
       BING("fizz")!
-    } BUT_MAYBE x % 5 == 0 {
+    } BUT_MAYBE (x % 5 == 0) {
       BING("buzz")!
     } FAKE_NEWS {
       BING(x)!
     }
     
-    LOOK x IS x + 1! 
+    LOOK x IS x + 1!
   }
 }
 

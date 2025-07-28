@@ -1,3 +1,10 @@
+FAKE_CODE
+  This is a greeting. 
+  The best greeting. 
+  Believe me. 
+SAD
+
 MAKE_IT_BIG greeting() {
-  GIVE_ME "hello world!"!
+  BING("Hello World!")!
 }
+greeting()!

@@ -1,0 +1,49 @@
+MAKE_IT_BIG is_equal(a, b) {
+  BELIEVE_ME a == b {
+    BING("EQUAL")!
+  } FAKE_NEWS {
+    BING("NOT EQUAL")!
+  }
+}
+is_equal(2, 2)!
+
+MAKE_IT_BIG is_even(n) {
+  BELIEVE_ME (n % 2 == 0) {
+    BING("EVEN")!
+  } FAKE_NEWS {
+    BING("ODD")!
+  }
+}
+is_even(4)!
+
+MAKE_IT_BIG is_fizzBuzz(n) {
+   BELIEVE_ME (n % 3 == 0) AND (n % 5 == 0) {
+      BING("fizzBuzz")!
+   } BUT_MAYBE n % 3 == 0 {
+      BING("NOT fizzBuzz")!
+   } FAKE_NEWS {
+      BING("THIS SHOULD NOT HAPPEN")!
+   }
+}
+is_fizzBuzz(15)!
+is_fizzBuzz(3)!
+
+MAKE_IT_BIG is_fruit(fruit) {
+  BELIEVE_ME fruit == "apple" {
+    BING("APPLE")!
+  } BUT_MAYBE fruit == "banana" {
+    BING("BANANA")!
+  } FAKE_NEWS {
+    BING("NOT FRUIT")!
+  }
+}
+is_fruit("apple")!
+
+MAKE_IT_BIG is_more_than_eq(a, b) {
+  BELIEVE_ME a >= b {
+    BING("MORE THAN OR EQUAL")!
+  } FAKE_NEWS {
+    BING("NOT MORE THAN OR EQUAL")!
+  }
+}
+is_more_than_eq(2, 2)

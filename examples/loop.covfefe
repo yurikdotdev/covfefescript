@@ -1,0 +1,22 @@
+FAKE_CODE
+  LOOK i IS 0!
+  KEEP_WINNING (i < 10) {
+    BING(i)!
+    LOOK i IS i + 1!
+  }
+SAD
+
+LOOK j IS 0!
+KEEP_WINNING (j < 20) {
+  BELIEVE_ME j == 17 {
+    IT_WAS_RIGGED!
+  }
+
+  BELIEVE_ME j % 4 == 0 {
+    LOOK j IS j + 1!
+    TIRED_OF_WINNING!
+  }
+  
+  BING(j)!
+  LOOK j IS j + 1!
+}
