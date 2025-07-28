@@ -1,10 +1,11 @@
 package parser
 
 import (
+	"fmt"
+
 	"github.com/yurikdotdev/covfefescript/internal/ast"
 	"github.com/yurikdotdev/covfefescript/internal/lexer"
 	"github.com/yurikdotdev/covfefescript/internal/token"
-	"fmt"
 )
 
 type (

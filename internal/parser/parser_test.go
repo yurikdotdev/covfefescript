@@ -336,7 +336,7 @@ func TestIfElseExpression(t *testing.T) {
 }
 
 func TestFunctionLiteralParsing(t *testing.T) {
-	input := `MAKE_IT_BIG(x, y) { x + y! }`
+	input := `MAKE_IT_BIG add(x, y) { x + y! }`
 
 	program := parseAndCheckErrors(t, input, 0)
 	stmt := testSingleExpressionStatement(t, program)

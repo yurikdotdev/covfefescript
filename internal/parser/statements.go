@@ -17,6 +17,8 @@ func (p *Parser) parseStatement() ast.Statement {
 		return p.parseBreakStatement()
 	case token.CONTINUE:
 		return p.parseContinueStatement()
+	case token.FUNCTION:
+		return p.parseFunctionStatement()
 	default:
 		return p.parseExpressionStatement()
 	}
@@ -101,7 +103,7 @@ func (p *Parser) parseForLoopStatement() *ast.ForLoopStatement {
 	if !p.expectPeek(token.LBRACE) {
 		return nil
 	}
-	
+
 	stmt.Body = p.parseBlockStatement()
 
 	return stmt
@@ -124,5 +126,28 @@ func (p *Parser) parseContinueStatement() *ast.ContinueStatement {
 		return nil
 	}
 
+	return stmt
+}
+
+func (p *Parser) parseFunctionStatement() *ast.ExpressionStatement {
+	stmt := &ast.ExpressionStatement{Token: p.curToken}
+
+	function := &ast.FunctionLiteral{Token: p.curToken}
+
+	if !p.expectPeek(token.IDENT) {
+		return nil
+	}
+	function.Name = &ast.Identifier{Token: p.curToken, Value: p.curToken.Literal}
+
+	if !p.expectPeek(token.LPAREN) {
+		return nil
+	}
+	function.Parameters = p.parseFunctionParameters()
+	if !p.expectPeek(token.LBRACE) {
+		return nil
+	}
+	function.Body = p.parseBlockStatement()
+
+	stmt.Expression = function
 	return stmt
 }
