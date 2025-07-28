@@ -8,6 +8,10 @@ A Trumpian-syntax Turing-complete interpreted language.
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
  </p>
 
+ **Boot.dev Hackahton 2025**
+
+
+```
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⡉⣉⡛⣛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⡿⠋⠁⠄⠄⠄⠄⠄⢀⣸⣿⣿⡿⠿⡯⢙⠿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⡿⠄⠄⠄⠄⠄⡀⡀⠄⢀⣀⣉⣉⣉⠁⠐⣶⣶⣿⣿⣿⣿⣿⣿
@@ -23,74 +27,88 @@ A Trumpian-syntax Turing-complete interpreted language.
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⣷⣿⣿⣷⠄⠄⢺⣇⠄⠄⠄⠄⠄⠄⠄⠄⠸⣿
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠹⣿⣿⡇⠄⠄⠸⣿⡄⠄⠈⠁⠄⠄⠄⠄⠄⣿
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢻⣿⡇⠄⠄⠄⢹⣧⠄⠄⠄⠄⠄⠄⠄⠄⠘
+```
 
 **Disclaimer**: This is not political. I'm not american. No hate or love, just memes.
 
-## Demo
+## The GREATEST Demo You've Ever Seen
 
-Look at this fizzBuzz program. A lot of people are saying and I mean a lot that it is the best fizzBuzz they have ever seen. Believe me.
+A lot of people are saying, and I mean **A LOT** of people, that this is the **BEST** fizzBuzz they have ever seen. Nobody has seen a fizzBuzz like this. It's unbelievable. Believe me.
 
 fizzBuzz.covfefe
 
 ```
 MAKE_IT_BIG fizzBuzz(n) {
-  KEEP_WINNING LOOK x IS 0! x < n! x += 1 {
-    BELIEVE_ME x % 5 == 0 AND x % 3 == 0 {
+  LOOK x IS 0!
+
+  KEEP_WINNING (x <= n) {
+    BELIEVE_ME (x % 3 == 0) AND (x % 5 == 0) {
       BING("fizzBuzz")!
-    } BUT_MAYBE x % 3 == 0 {
+    } BUT_MAYBE (x % 3 == 0) {
       BING("fizz")!
-    } BUT_MAYBE x % 5 == 0 {
+    } BUT_MAYBE (x % 5 == 0) {
       BING("buzz")!
     } FAKE_NEWS {
       BING(x)!
     }
+
+    LOOK x IS x + 1!
   }
 }
 
-fizzBuzz(100)!
+fizzBuzz(15)!
 ```
 
-## Features
+## Running CovfefeScript: It's VERY SIMPLE, The SIMPLEST!
 
-- Turing complete, it can do anything. Anything. Some people are saying it's the most complete language.
-- Built with Go, it's the best language, very best.
-- Freedom included, believe me.
+Running CovfefeScript is VERY SIMPLE. The SIMPLEST. It's so easy, even a child could do it.
 
-## Usage
-
-Running CovfefeScript is very simple. The simplest.
-
-You can build it yourself like a winner.
+You can build it yourself like a WINNER. It's a beautiful thing.
 
 ```
 // First, you build the interpreter, a strong interpreter.
-go build
+go build -o covfefescript cmd/covfefescript/main.go
 
-// Then, run your beautiful code. You'll love it. Believe me.
-./covfefescript big_hands.covfefe
+// Then, run your beautiful code. You'll love it.
+./covfefescript examples/helloWorld.covfefe
+
 ```
 
-Or use NPM. Sad.
+Or you can use NPM. SAD! It's a disaster.
 
 ```
 npm install -g covfefescript
 ```
 
-## Syntax
+## REPL: It's TREMENDOUSLY Interactive!
 
-A lot of people are saying we have the best syntax.
+You can also run CovfefeScript in interactive mode. It's a beautiful thing, very interactive. Just type your code and see what happens. It's so good, so fast.
 
-### Statement Terminator
+```
+// Just run the interpreter without a file. It's that simple.
+./covfefescript
 
-All real statements, the ones that do things, must end with an exclamation point (!). It shows strength. It's not optional. We don't do optional.
+// or run the binary from npm 
+covfefescript
 
-### Comments
+```
 
-Sometimes you have to deal with fake news from the media. You can put it in comments.
+
+## Syntax: The BEST Syntax. Everyone Agrees.
+
+A lot of people are saying we have the BEST SYNTAX. It's so clear, so concise. It's the most beautiful syntax.
+
+### Statement Terminator: It Shows STRENGTH!
+
+All real statements, the ones that DO THINGS, the important ones, they MUST end with an exclamation point (!). It shows STRENGTH. It's not optional. We don't do optional.
+
+### Comments: Dealing with FAKE NEWS!
+
+Sometimes you have to deal with FAKE NEWS from the media. It's disgusting. You can put it in comments. We know the truth.
 
 ```
 // This is fake news. You know it. I know it.
-// Everybody knows it.
+// Everybody knows it. It's a total witch hunt.
 
 FAKE_CODE
   This code? Totally fake.
@@ -100,28 +118,28 @@ SAD
 
 ```
 
-### Variables
+### Variables: LOOK for the TRUTH!
 
-You declare variables with LOOK. It's how you find the truth. There are many great types of variables. These are just labels, by the way, not keywords. The language knows the type. It's very smart.
+You declare variables with LOOK. It's how you find the TRUTH. There are many GREAT types of variables. These are just labels, by the way, not keywords. The language itself is VERY SMART. It knows the type. It's brilliant.
 
 ```
-// TWEET (string)
+// TWEET
 LOOK economy IS "booming"!
 
-// MONEY (number)
+// MONEY
 LOOK small_loan IS 1000000!
 
-// TRUTH (boolean)
-LOOK my_hater IS LOSER! // This is false, obviously.
-LOOK my_hand IS YUGE! // This is true.
+// TRUTH
+LOOK my_hater IS LOSER!
+LOOK my_hand IS YUGE!
 
 // COVFEFE (null)
 LOOK empty_val IS COVFEFE!
 
-// COLLUTION (array)
+// COLLUTION
 LOOK my_team IS [ "the best", "people", "a beautiful wall" ]!
 
-// PROPERTY (object)
+// PROPERTY
 LOOK my_deal IS {
   "name": "The Art of the Deal",
   "rating": "tremendous"
@@ -129,9 +147,9 @@ LOOK my_deal IS {
 
 ```
 
-### Conditionals
+### Conditionals: BELIEVE ME or It's FAKE NEWS!
 
-Use BELIEVE_ME for an if statement. If that's not true, try BUT_MAYBE (else if). Everything else is FAKE_NEWS (else). Sad!
+You use BELIEVE_ME for an if statement. If that's not true, and sometimes it's not, you try BUT_MAYBE (else if). Everything else is FAKE_NEWS (else). SAD!
 
 ```
 LOOK your_breath IS "good"!
@@ -141,33 +159,36 @@ BELIEVE_ME your_breath == "good" {
 } BUT_MAYBE your_breath != "good" {
   BING("Do you mind if I sit back a little? ")!
 } FAKE_NEWS {
-  SADLY("Because your breath is very bad.")!
+  BING("Because your breath is very bad.")!
 }
 ```
 
-Just like the other language, you can use AND and OR, I know it, you know it.
+Just like the other languages, the ones that are okay, you can use AND. I know it, you know it. Everyone knows it.
 
-### Loops
+### Loops: KEEP_WINNING! It's the BEST STYLE!
 
-You use KEEP_WINNING to start a loop. It's a C-style loop because it's a winning style. The best style.
+You use KEEP_WINNING to start a loop. It's a C-style loop because it's a WINNING STYLE. The BEST STYLE. We only do winning.
 
 ```
-KEEP_WINNING LOOK i IS 0! i < 5! i += 1 {
-  BELIEVE_ME i == 2 {
+LOOK j IS 0!
+KEEP_WINNING (j < 20) {
+  BELIEVE_ME j == 17 {
     IT_WAS_RIGGED! // break
   }
 
-  BELIEVE_ME i == 0 {
-    TIRED_OF_WINNING // continue
+  BELIEVE_ME j % 4 == 0 {
+    LOOK j IS j + 1!
+    TIRED_OF_WINNING! // continue
   }
 
-  BING("The number is", i, "and it's a great number.")!
+  BING(j)!
+  LOOK j IS j + 1!
 }
 ```
 
-### Arithmetic
+### Arithmetic: We Have the BEST MATH!
 
-We have the best math, I love math, nobody does math like this.
+We have the BEST MATH. I love math, nobody does math like this. It's simple, it's effective, it's winning math.
 
 ```
 LOOK a IS 5!
@@ -193,31 +214,26 @@ BING("Complex calc:", big_number_calc)!
 
 ```
 
-### Functions
+### Functions: MAKE IT BIG! It's SO GOOD!
 
-As you have probably guessed, you use MAKE_IT_BIG to start a function. It is so good, so simple. You use GIVE_ME to return a value.
+As you have probably guessed, and you're very smart for guessing, you use MAKE_IT_BIG to start a function. It is SO GOOD, SO SIMPLE. It's the best function declaration. You use GIVE_ME to return a value. It's a beautiful thing.
 
 ```
 MAKE_IT_BIG buildTheWall(height, material) {
-  GIVE_ME "A " + height + " foot wall made of " + material + ". Beautiful."!
+  GIVE_ME "My ideal wall is a " + height + " feet wall made of " + material + ". Beautiful."!
 }
 
-LOOK my_wall IS buildTheWall(30, "solid gold")!
+LOOK my_wall IS buildTheWall("five", "solid gold")!
 BING(my_wall)!
 ```
 
-We have the best built-ins. More are coming.
+We have the BEST BUILT-INS. More are coming. They're going to be huge.
 
-- BING(...)!: Prints to the console. Very powerful.
-- SADLY(...)!: Prints an error message. Very sad.
+- BING(...)!: Prints to the console. Very powerful. Very direct.
 
 ## Attributions
 
-This is the first programming language I've ever built.
-It was built in around for Boot.dev Hackahton 2025.
-Due to the time constraint, I took the simplest design: tree-walking interpreter, top-down (pratt) parser,
-
-I heavily referenced the Thorsten Ball's Writing an Interpreter in Go and Crafting Interpreter.
+This project draws heavily from Writing an Interpreter in Go by Thorsten Ball, some portions of the code closely follow examples from the book, adapted to fit the project’s goals and constraints.
 
 ## License
 
